@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>VELOCIA DE LUMIÈRE — Avant-Garde Streetwear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="announcement-bar">
+        <span>Con estilo, el mundo es tuyo.</span>
+    </div>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <a href="#" class="logo">VELOCIA DE LUMIÈRE.</a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">HOME</a></li>
+                <li><a href="#catalog">CATALOG</a></li>
+                <li><a href="#lookbook">LOOKBOOK</a></li>
+                <li><a href="#entelemi-soldier">SOLDIERS</a></li>
+                <li><a href="#instagram-section">COMMUNITY</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme" title="Toggle Theme">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+            <div class="cart-icon" id="cartToggleBtn" role="button" aria-label="Open Cart">
+                <i class="fa-solid fa-bag-shopping"></i> <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="season-badge">SEASON 01 // DROP 04</div>
+        <h1>Avant-Garde Streetwear</h1>
+        <p>Architectural silhouettes and uncompromising luxury aesthetics engineered for urban culture. Limited global allocation.</p>
+        <a href="#catalog" class="btn-explore">EXPLORE COLLECTION</a>
+    </section>
+
+    <section class="catalog" id="catalog">
+        <div class="section-header">
+            <div>
+                <h2>CATALOG</h2>
+            </div>
+            <div>
+                <p>LIMITED DROPS // 2026</p>
+            </div>
+        </div>
+
+        <div class="catalog-controls">
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="tee">T-SHIRTS</button>
+                <button class="filter-btn" data-filter="limited">LIMITED DROPS</button>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search pieces...">
+            </div>
+        </div>
+
+        <div class="grid-products" id="productGrid">
+            <div class="product-card" data-category="tee" data-name="More Amore Tee" data-price="399000" data-desc="Romantic typography statement piece celebrating passion, art, and modern streetwear culture with distressed brush textures." data-img="20.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">DROP 04</span>
+                    <img src="20.jpg" alt="More Amore Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>More Amore Tee</h3>
+                    <p>Romantic typography statement piece celebrating passion and art.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="limited" data-name="Blessed Mama Tee" data-price="399000" data-desc="A soulful tribute embodying endless affection, framed within subtle gradient celestial aesthetics and poetic graphics." data-img="21.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">LIMITED</span>
+                    <img src="21.jpg" alt="Blessed Mama Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Blessed Mama Tee</h3>
+                    <p>A soulful tribute embodying endless affection and celestial graphics.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="tee" data-name="Velocia Signature Lips Tee" data-price="399000" data-desc="The iconic flagship piece featuring avant-garde metallic lips graphics and high-contrast collegiate typography." data-img="1.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">SIGNATURE</span>
+                    <img src="1.jpg" alt="Velocia Signature Lips Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Velocia Signature Lips Tee</h3>
+                    <p>The iconic flagship piece featuring avant-garde metallic lips graphics.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="limited" data-name="Born to Risk F1 Tee" data-price="399000" data-desc="High-octane racing aesthetics merged with luxury streetwear, celebrating speed, risk, and victory." data-img="2.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">DROP 04</span>
+                    <img src="2.jpg" alt="Born to Risk F1 Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Born to Risk F1 Tee</h3>
+                    <p>High-octane racing aesthetics merged with luxury streetwear.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="tee" data-name="Digital Echoes Tee" data-price="399000" data-desc="Abstract cybernetic blueprints and raw digital scribbles reflecting the pulse of modern urban architecture." data-img="3.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">AVANT-GARDE</span>
+                    <img src="3.jpg" alt="Digital Echoes Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Digital Echoes Tee</h3>
+                    <p>Abstract cybernetic blueprints reflecting modern urban architecture.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="tee" data-name="Chase Dreams Over Love Tee" data-price="399000" data-desc="A profound juxtaposition of existential art and unyielding ambition printed on heavyweight combed cotton." data-img="4.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">SIGNATURE</span>
+                    <img src="4.jpg" alt="Chase Dreams Over Love Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Chase Dreams Over Love Tee</h3>
+                    <p>A profound juxtaposition of existential art and unyielding ambition.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="limited" data-name="Rich in Spirit Tee" data-price="399000" data-desc="Opulent luxury statement piece featuring detailed 3D skeleton artwork, gold accessories, and bold typography." data-img="5.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">LIMITED</span>
+                    <img src="5.jpg" alt="Rich in Spirit Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Rich in Spirit Tee</h3>
+                    <p>Opulent luxury statement piece featuring detailed 3D skeleton artwork.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="tee" data-name="Loyalty Bros Before Hoes Tee" data-price="399000" data-desc="An ode to brotherhood, late-night asphalt adventures, and unwavering street loyalty." data-img="6.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">STREET</span>
+                    <img src="6.jpg" alt="Loyalty Bros Before Hoes Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Loyalty Bros Before Hoes Tee</h3>
+                    <p>An ode to brotherhood and late-night asphalt adventures.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="limited" data-name="Fear of Fame Tee" data-price="399000" data-desc="Classical Renaissance art blended with gritty red typography, capturing the heavy cost of modern visibility." data-img="7.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">EXCLUSIVE</span>
+                    <img src="7.jpg" alt="Fear of Fame Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Fear of Fame Tee</h3>
+                    <p>Classical Renaissance art blended with gritty red typography.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="limited" data-name="Threak Lightning Muscle Tee" data-price="399000" data-desc="Electrifying thunderstorm graphics paired with vintage automotive horsepower for an unstoppable aesthetic." data-img="8.jpg">
+                <div class="product-img-box">
+                    <span class="product-tag">DROP 04</span>
+                    <img src="8.jpg" alt="Threak Lightning Muscle Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Threak Lightning Muscle Tee</h3>
+                    <p>Electrifying thunderstorm graphics paired with vintage automotive power.</p>
+                    <div class="product-footer">
+                        <span class="price">IDR 399.000</span>
+                        <button class="btn-add" onclick="openDetailModal(this)">VIEW & BUY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lookbook" id="lookbook">
+        <h2>LOOKBOOK</h2>
+        <p>Visualizing the intersection of industrial architecture and high-end futuristic streetwear.</p>
+        <div class="lookbook-banner">
+            <h3>FALL // WINTER 2026</h3>
+        </div>
+    </section>
+
+    <section class="entelemi-soldier-section" id="entelemi-soldier">
+        <div class="soldier-container">
+            <span class="soldier-badge">OFFICIAL PARTNERSHIP // FACULTY ALLIANCE</span>
+            <h2>ENTELEMI SOLDIER</h2>
+            <p class="soldier-manifesto">
+                Entelemi Soldier adalah komunitas resmi dan aliansi strategis dari fakultas tempat kami berkarya. Sebagai gerakan eksklusif yang memadukan semangat progresif kampus dengan kultur modern, Entelemi Soldier berdiri di garis depan pergerakan gaya hidup, solidaritas, dan eksplorasi estetika tanpa kompromi.
+            </p>
+
+            <div class="soldier-info-box">
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-handshake"></i> KAMPUS & KULTUR</h4>
+                    <p>Kolaborasi eksklusif antara Velocia de Lumière dan Entelemi Soldier mewujudkan visi berpakaian yang berkarakter kuat, mencerminkan identitas mahasiswa yang dinamis, berani, dan visioner.</p>
+                </div>
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-shield-halved"></i> SOLIDARITAS & LOYALITAS</h4>
+                    <p>Dibentuk atas dasar kekeluargaan dan visi masa depan yang sama, setiap anggota memegang teguh standar eksklusivitas, kreativitas, dan pergerakan sub-kultur mandiri.</p>
+                </div>
+            </div>
+
+            <div class="soldier-photo-grid">
+                <div class="soldier-photo-card">
+                    <img src="22.jpg" alt="Entelemi Soldier Vibe 1" loading="lazy">
+                    <div class="soldier-watermark">VDL X ENTELEMI</div>
+                </div>
+                <div class="soldier-photo-card">
+                    <img src="23.jpg" alt="Entelemi Soldier Vibe 2" loading="lazy">
+                    <div class="soldier-watermark">VDL X ENTELEMI</div>
+                </div>
+                <div class="soldier-photo-card">
+                    <img src="24.jpg" alt="Entelemi Soldier Vibe 3" loading="lazy">
+                    <div class="soldier-watermark">VDL X ENTELEMI</div>
+                </div>
+            </div>
+
+            <div class="soldier-perks">
+                <div class="perk-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h4>EXCLUSIVE</h4>
+                    <p>Hak istimewa alokasi produk terbatas khusus soldiers!</p>
+                </div>
+                <div class="perk-card">
+                    <i class="fa-solid fa-key"></i>
+                    <h4>SECRET VAULT</h4>
+                    <p>Akses desain eksklusif VDL X ENTELEMI.</p>
+                </div>
+                <div class="perk-card">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <h4>HIGH COMMUNITY</h4>
+                    <p>Terhubung dalam jaringan komunitas berstandar tinggi.</p>
+                </div>
+            </div>
+
+            <a href="https://instagram.com/entelemisoldier?vrfl=MWh1OThkZDVjM2FpYw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-soldier-join">
+                ENLIST AS A SOLDIER <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="instagram-section" id="instagram-section">
+        <div class="insta-header">
+            <h2>@velocia.studio</h2>
+            <p>Join our global underground community. Tag us to be featured.</p>
+            <a href="https://instagram.com/velocia.studio" target="_blank" rel="noopener noreferrer" class="btn-insta-follow">FOLLOW @velocia.studio <i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="insta-grid">
+            <a href="https://instagram.com/velocia.studio" target="_blank" rel="noopener noreferrer" class="insta-item">
+                <img src="1.jpg" alt="Community Style 1" loading="lazy">
+                <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </a>
+            <a href="https://instagram.com/velocia.studio" target="_blank" rel="noopener noreferrer" class="insta-item">
+                <img src="20.jpg" alt="Community Style 2" loading="lazy">
+                <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </a>
+            <a href="https://instagram.com/velocia.studio" target="_blank" rel="noopener noreferrer" class="insta-item">
+                <img src="7.jpg" alt="Community Style 3" loading="lazy">
+                <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </a>
+            <a href="https://instagram.com/velocia.studio" target="_blank" rel="noopener noreferrer" class="insta-item">
+                <img src="5.jpg" alt="Community Style 4" loading="lazy">
+                <div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2026 VELOCIA DE LUMIÈRE. ALL RIGHTS RESERVED.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/velocia.studio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        </div>
+    </footer>
+
+    <!-- MOBILE QUICK NAVIGATION BAR (KHUSUS HP) -->
+    <div class="mobile-bottom-nav">
+        <a href="#" class="mobile-nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="#catalog" class="mobile-nav-item">
+            <i class="fa-solid fa-shirt"></i>
+            <span>Catalog</span>
+        </a>
+        <a href="#lookbook" class="mobile-nav-item">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Lookbook</span>
+        </a>
+        <a href="#entelemi-soldier" class="mobile-nav-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Soldiers</span>
+        </a>
+        <a href="#instagram-section" class="mobile-nav-item">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Community</span>
+        </a>
+    </div>
+
+    <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="cart-header">
+            <h3>YOUR CART</h3>
+            <button class="close-cart" id="closeCartBtn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <p class="empty-cart-text">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalPrice">IDR 0</span>
+            </div>
+            <button class="btn-checkout" id="checkoutWhatsappBtn">CHECKOUT VIA WHATSAPP</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <div class="modal-overlay" id="productModal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModalBtn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid">
+                <div class="modal-img-box">
+                    <img id="modalImg" src="" alt="Product Detail">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <p id="modalPrice" class="modal-price">IDR 0</p>
+                    <p id="modalDesc" class="modal-desc">Description goes here.</p>
+                    
+                    <div class="size-selector">
+                        <div class="size-label-row">
+                            <label>SELECT SIZE:</label>
+                            <span class="size-guide-link">Size Guide</span>
+                        </div>
+                        <div class="sizes">
+                            <button class="size-btn active" onclick="selectSize(this, 'S')">S</button>
+                            <button class="size-btn" onclick="selectSize(this, 'M')">M</button>
+                            <button class="size-btn" onclick="selectSize(this, 'L')">L</button>
+                            <button class="size-btn" onclick="selectSize(this, 'XL')">XL</button>
+                            <button class="size-btn" onclick="selectSize(this, 'XXL')">XXL</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-modal-add" id="modalAddToCartBtn">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
