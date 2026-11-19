@@ -24,7 +24,7 @@
                 <li><a href="#" class="active">HOME</a></li>
                 <li><a href="#catalog">CATALOG</a></li>
                 <li><a href="#lookbook">LOOKBOOK</a></li>
-                <li><a href="#entelemi-soldier">SOLDIERS</a></li>
+                <li><a href="#entelemi-soldier">ENTELEMI</a></li>
                 <li><a href="#instagram-section">COMMUNITY</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
@@ -225,7 +225,7 @@
         <h2>LOOKBOOK</h2>
         <p>Visualizing the intersection of industrial architecture and high-end futuristic streetwear.</p>
         <div class="lookbook-banner">
-            <h3>FALL // WINTER 2026</h3>
+            <img src="banner.jpg" alt="Velocia de Lumière Banner" loading="lazy">
         </div>
     </section>
 
@@ -234,7 +234,7 @@
             <span class="soldier-badge">OFFICIAL PARTNERSHIP // FACULTY ALLIANCE</span>
             <h2>ENTELEMI SOLDIER</h2>
             <p class="soldier-manifesto">
-                Entelemi Soldier adalah komunitas resmi dan aliansi strategis dari fakultas tempat kami berkarya. Sebagai gerakan eksklusif yang memadukan semangat progresif kampus dengan kultur modern, Entelemi Soldier berdiri di garis depan pergerakan gaya hidup, solidaritas, dan eksplorasi estetika tanpa kompromi.
+                Entelemi Soldier adalah komunitas resmi dan aliansi strategis dari Fakultas Peternakan dan Pertanian, Universitas Diponegoro. Sebagai gerakan eksklusif yang memadukan semangat progresif kampus dengan kultur modern, Entelemi Soldier berdiri di garis depan pergerakan gaya hidup, solidaritas, dan eksplorasi estetika tanpa kompromi.
             </p>
 
             <div class="soldier-info-box">
@@ -322,7 +322,6 @@
         </div>
     </footer>
 
-    <!-- MOBILE QUICK NAVIGATION BAR (KHUSUS HP) -->
     <div class="mobile-bottom-nav">
         <a href="#" class="mobile-nav-item active">
             <i class="fa-solid fa-house"></i>
@@ -338,7 +337,7 @@
         </a>
         <a href="#entelemi-soldier" class="mobile-nav-item">
             <i class="fa-solid fa-shield-halved"></i>
-            <span>Soldiers</span>
+            <span>Entelemi</span>
         </a>
         <a href="#instagram-section" class="mobile-nav-item">
             <i class="fa-brands fa-instagram"></i>
@@ -391,6 +390,29 @@
                     </div>
 
                     <button class="btn-modal-add" id="modalAddToCartBtn">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collab-popup-overlay" id="collabPopup" aria-hidden="true">
+        <div class="collab-popup-card">
+            <button class="close-collab-popup" id="closeCollabPopupBtn" aria-label="Tutup Promo">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="collab-popup-visual">
+                <img src="popup.jpg" alt="Velocia x Entelemi Soldier">
+                <span class="collab-popup-tag">SPECIAL COLLABORATION</span>
+            </div>
+            <div class="collab-popup-body">
+                <span class="collab-popup-eyebrow">VELOCIA DE LUMIÈRE × ENTELEMI SOLDIER</span>
+                <h3>THE FACULTY ALLIANCE DROP</h3>
+                <p>Where avant-garde streetwear aesthetics collide with the unbreakable solidarity of Entelemi Soldier. An exclusive collaboration with strictly limited allocation for alliance members and the public.</p>
+                <div class="collab-popup-actions">
+                    <a href="#entelemi-soldier" class="btn-collab-primary" id="exploreCollabBtn">
+                        Check out <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button type="button" class="btn-collab-secondary" id="dismissCollabBtn">NANTI SAJA</button>
                 </div>
             </div>
         </div>

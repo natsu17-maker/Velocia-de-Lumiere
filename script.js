@@ -269,3 +269,35 @@ if (canvas) {
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 }
+
+const collabPopup = document.getElementById('collabPopup');
+const closeCollabPopupBtn = document.getElementById('closeCollabPopupBtn');
+const dismissCollabBtn = document.getElementById('dismissCollabBtn');
+const exploreCollabBtn = document.getElementById('exploreCollabBtn');
+
+function closeCollabModal() {
+    if (collabPopup) {
+        collabPopup.classList.remove('active');
+        collabPopup.setAttribute('aria-hidden', 'true');
+        sessionStorage.setItem('vdl_entelemi_promo_seen', 'true');
+    }
+}
+
+if (collabPopup && !sessionStorage.getItem('vdl_entelemi_promo_seen')) {
+    setTimeout(() => {
+        collabPopup.classList.add('active');
+        collabPopup.setAttribute('aria-hidden', 'false');
+    }, 1500);
+}
+
+if (closeCollabPopupBtn) closeCollabPopupBtn.addEventListener('click', closeCollabModal);
+if (dismissCollabBtn) dismissCollabBtn.addEventListener('click', closeCollabModal);
+if (exploreCollabBtn) exploreCollabBtn.addEventListener('click', closeCollabModal);
+
+if (collabPopup) {
+    collabPopup.addEventListener('click', (e) => {
+        if (e.target === collabPopup) {
+            closeCollabModal();
+        }
+    });
+}

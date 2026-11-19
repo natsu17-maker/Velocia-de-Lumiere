@@ -445,16 +445,28 @@ section.lookbook {
 
 .lookbook-banner {
     width: 100%;
-    height: min(400px, 55vw);
-    background: linear-gradient(rgba(113,0,20,0.4), rgba(22,22,22,0.8)), url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop') center/cover;
+    max-width: 1200px;
+    aspect-ratio: 3 / 1;
+    height: auto;
+    margin: 0 auto;
+    background: var(--card-img-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border-color);
     position: relative;
+    overflow: hidden;
+}
+
+.lookbook-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .lookbook-banner h3 {
+    position: absolute;
     font-family: 'Syncopate', sans-serif;
     font-size: clamp(1.1rem, 3vw, 1.8rem);
     letter-spacing: 3px;
@@ -462,6 +474,7 @@ section.lookbook {
     color: var(--accent-gold);
     padding: 0 15px;
     text-align: center;
+    z-index: 2;
 }
 
 .entelemi-soldier-section {
@@ -562,7 +575,6 @@ section.lookbook {
     line-height: 1.6;
 }
 
-/* PHOTO GALLERY STYLING WITH VELOCIA STUDIO WATERMARK */
 .soldier-photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1111,7 +1123,195 @@ footer p {
     color: #161616;
 }
 
+.mobile-bottom-nav {
+    display: none;
+}
+
+.collab-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.collab-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.collab-popup-card {
+    background: var(--modal-bg);
+    border: 1px solid var(--accent-gold);
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(18px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+}
+
+.collab-popup-overlay.active .collab-popup-card {
+    transform: translateY(0) scale(1);
+}
+
+.close-collab-popup {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(22, 22, 22, 0.8);
+    border: 1px solid var(--border-color);
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.close-collab-popup:hover {
+    background: var(--accent-red);
+    border-color: var(--accent-gold);
+}
+
+.collab-popup-visual {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    background: var(--card-img-bg);
+    overflow: hidden;
+}
+
+.collab-popup-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(110%);
+}
+
+.collab-popup-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(113, 0, 20, 0.15) 0%, var(--modal-bg) 100%);
+}
+
+.collab-popup-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    background: var(--accent-red);
+    color: #ffffff;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+    border: 1px solid rgba(179, 143, 111, 0.4);
+}
+
+.collab-popup-body {
+    padding: 22px 26px 28px;
+    text-align: center;
+}
+
+.collab-popup-eyebrow {
+    display: block;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.collab-popup-body h3 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #ffffff 30%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .collab-popup-body h3 {
+    background: linear-gradient(135deg, #710014 30%, #B38F6F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.collab-popup-body p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.collab-popup-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-collab-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--accent-red);
+    color: #ffffff;
+    border: 1px solid var(--accent-red);
+    padding: 13px 20px;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-collab-primary:hover {
+    background: transparent;
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.btn-collab-secondary {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+    padding: 6px;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+.btn-collab-secondary:hover {
+    color: var(--text-main);
+}
+
 @media (max-width: 768px) {
+    body {
+        padding-bottom: 75px;
+    }
+
     header { padding: 14px 5%; top: 26px; }
     nav { display: none; }
     .hero { padding: 0 5%; }
@@ -1119,15 +1319,6 @@ footer p {
     .modal-grid { grid-template-columns: 1fr; }
     .modal-img-box { min-height: 250px; height: 250px; }
     .modal-details { padding: 22px 18px; }
-}
-.mobile-bottom-nav {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-bottom: 75px;
-    }
 
     .mobile-bottom-nav {
         display: flex;
